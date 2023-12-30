@@ -47,4 +47,20 @@ class BoardTest {
     void testPrint() {
         assertDoesNotThrow(() -> board.print(), "Print should execute without throwing exceptions");
     }
+    @Test
+    void testIsFullTrue() {
+        // Füllen des Bretts ohne Gewinner zu erzeugen
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                board.place(i, j, (i + j) % 2 == 0 ? 'X' : 'O');
+            }
+        }
+        assertTrue(board.isFull(), "Board should be full");
+    }
+
+    @Test
+    void testIsFullFalse() {
+        board.place(0, 0, 'X');
+        assertFalse(board.isFull(), "Board should not be full after one move");
+    }
 }

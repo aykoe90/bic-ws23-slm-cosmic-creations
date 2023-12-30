@@ -43,15 +43,12 @@ class TicTacToeTest {
 
     @Test
     void testIsGameOverAfterGameEnd() {
-        // Dieser Test hängt von der Implementierung der Gewinn- und Unentschieden-Logik ab.
-        // Wird erst mit der zukünfitgen User Story implementiert.
-        // Zum Beispiel, nachdem ein Spieler gewinnt:
-        // game.playTurn(0, 0);
-        // game.playTurn(1, 0);
-        // game.playTurn(0, 1);
-        // game.playTurn(1, 1);
-        // game.playTurn(0, 2);
-        // assertTrue(game.isGameOver(), "isGameOver should be true after game ends");
+         game.playTurn(0, 0);
+         game.playTurn(1, 0);
+         game.playTurn(0, 1);
+         game.playTurn(1, 1);
+         game.playTurn(0, 2);
+         assertTrue(game.isGameOver(), "isGameOver should be true after game ends");
     }
     @Test
     void testGetBoardNotNull() {
@@ -64,4 +61,22 @@ class TicTacToeTest {
         TicTacToe game = new TicTacToe();
         assertTrue(game.getBoard() instanceof Board, "getBoard should return an instance of Board");
     }
+    @Test
+    void testHasWinnerTrue() {
+        // Beispiel für einen Gewinn durch Spieler X in der ersten Zeile
+        game.playTurn(0, 0); // X
+        game.playTurn(1, 0); // O
+        game.playTurn(0, 1); // X
+        game.playTurn(1, 1); // O
+        game.playTurn(0, 2); // X gewinnt
+        assertTrue(game.hasWinner(), "Should return true if there is a winner");
+    }
+
+    @Test
+    void testHasWinnerFalse() {
+        game.playTurn(0, 0); // X
+        game.playTurn(1, 0); // O
+        assertFalse(game.hasWinner(), "Should return false if there is no winner");
+    }
+
 }
