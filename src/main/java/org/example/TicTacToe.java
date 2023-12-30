@@ -41,6 +41,9 @@ public class TicTacToe {
         return currentPlayer;
     }
 
+    public Board getBoard() {
+        return board;
+    }
     public boolean isGameOver() {
         return gameOver;
     }
