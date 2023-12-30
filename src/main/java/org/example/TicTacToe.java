@@ -43,7 +43,7 @@ public class TicTacToe {
         currentPlayer = (currentPlayer == player1) ? player2 : player1;
     }
 
-    private boolean hasWinner() {
+    boolean hasWinner() {
         // Prüfen der Reihen und Spalten auf einen Gewinner
         for (int i = 0; i < 3; i++) {
             if (!board.isCellEmpty(i, 0) &&
