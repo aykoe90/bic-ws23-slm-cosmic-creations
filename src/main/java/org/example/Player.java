@@ -8,7 +8,6 @@ public class Player {
     }
 
     public char getMarker() {
-        // todo Rückgabe des Markers des Spielers
         return marker;
     }
 }
