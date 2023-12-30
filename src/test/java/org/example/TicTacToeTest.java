@@ -53,5 +53,15 @@ class TicTacToeTest {
         // game.playTurn(0, 2);
         // assertTrue(game.isGameOver(), "isGameOver should be true after game ends");
     }
+    @Test
+    void testGetBoardNotNull() {
+        TicTacToe game = new TicTacToe();
+        assertNotNull(game.getBoard(), "getBoard should not return null");
+    }
 
+    @Test
+    void testGetBoardIsBoardInstance() {
+        TicTacToe game = new TicTacToe();
+        assertTrue(game.getBoard() instanceof Board, "getBoard should return an instance of Board");
+    }
 }
