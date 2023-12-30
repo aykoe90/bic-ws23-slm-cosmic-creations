@@ -23,6 +23,7 @@ public class Main {
                 }
             } while (!validInput);
 
+            game.getBoard().print();
         }
         scanner.close();
     }
