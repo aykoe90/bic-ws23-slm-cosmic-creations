@@ -12,13 +12,11 @@ public class Board {
         return cells[x][y] == '\u0000'; // Unicode Null Zeichen, bedeutet leere Zelle
     }
 
-
     public void place(int x, int y, char marker) {
         if (isCellEmpty(x, y)) {
             cells[x][y] = marker;
         }
     }
-
 
     public boolean isFull() {
         for (int i = 0; i < 3; i++) {
@@ -39,7 +37,6 @@ public class Board {
         }
     }
 
-
     public void print() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -51,6 +48,5 @@ public class Board {
     public char getCell(int x, int y) {
         return cells[x][y];
     }
-
 
 }

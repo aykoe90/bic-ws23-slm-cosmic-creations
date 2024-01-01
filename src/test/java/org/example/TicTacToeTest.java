@@ -61,6 +61,7 @@ class TicTacToeTest {
         TicTacToe game = new TicTacToe();
         assertTrue(game.getBoard() instanceof Board, "getBoard should return an instance of Board");
     }
+
     @Test
     void testHasWinnerTrue() {
         // Beispiel für einen Gewinn durch Spieler X in der ersten Zeile
@@ -79,4 +80,22 @@ class TicTacToeTest {
         assertFalse(game.hasWinner(), "Should return false if there is no winner");
     }
 
+    @Test
+    void testResetGame() {
+        game.playTurn(0, 0);
+        game.playTurn(1, 0);
+        game.playTurn(0, 1);
+        game.playTurn(1, 1);
+        game.playTurn(0, 2);
+
+        // Überprüfen, ob das Spiel vor dem Reset vorbei ist
+        assertTrue(game.isGameOver(), "Game should be over before reset");
+
+        game.getBoard().clear();
+        game = new TicTacToe();
+
+        // Überprüfen, ob das Spielbrett nach dem Reset zurückgesetzt wurde
+        assertFalse(game.isGameOver(), "Game should not be over after reset");
+        assertFalse(game.getBoard().isFull(), "Board should not be full after reset");
+    }
 }
