@@ -71,7 +71,6 @@ public class TicTacToe {
         return false;
     }
 
-
     public Player getCurrentPlayer() {
         return currentPlayer;
     }
